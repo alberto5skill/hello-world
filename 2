@@ -1,0 +1,4 @@
+# count number of train images for each expression
+
+for expression in os.listdir(base_path + "train"):
+    print(str(len(os.listdir(base_path + "train/" + expression))) + " " + expression + " images")
