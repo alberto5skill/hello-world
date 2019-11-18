@@ -1,0 +1,21 @@
+from keras.preprocessing.image import ImageDataGenerator
+
+# number of images to feed into the NN for every batch
+batch_size = 128
+
+datagen_train = ImageDataGenerator()
+datagen_validation = ImageDataGenerator()
+
+train_generator = datagen_train.flow_from_directory(base_path + "train",
+                                                    target_size=(pic_size,pic_size),
+                                                    color_mode="grayscale",
+                                                    batch_size=batch_size,
+                                                    class_mode='categorical',
+                                                    shuffle=True)
+
+validation_generator = datagen_validation.flow_from_directory(base_path + "validation",
+                                                    target_size=(pic_size,pic_size),
+                                                    color_mode="grayscale",
+                                                    batch_size=batch_size,
+                                                    class_mode='categorical',
+                                                    shuffle=False)
